@@ -1,0 +1,56 @@
+// 
+// variables.scss
+// 
+
+// google font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+// color variables
+$white:               #ffffff;
+$gray-100:            #ebebeb;
+$gray-200:            #F5F6F8;
+$gray-300:            #e8e8e8;
+$gray-400:            #cbcbd5;
+$gray-500:            #a7a9c0;
+$gray-600:            #74788d;
+$gray-700:            #495057;
+$gray-800:            #052f61;
+$gray-900:            #212529;
+$black:               #000000;
+
+
+$primary:             #106fde;
+$secondary:           #6c757d;
+$success:             #2dd6b7;
+$info:                #56c6e6;
+$warning:             #ffbb13;
+$danger:              #f0183c;
+$dark:                #38475a;
+$light:               #f3f6f9;
+$muted:               #84869a; 
+
+// theme color
+$theme-colors:(    
+        "primary": $primary,
+        "secondary": $secondary,
+        "success": $success,
+        "info": $info,
+        "warning": $warning,
+        "danger": $danger,
+        "dark": $dark,
+        "light": $light,
+        "muted": $muted
+ );
+
+$body-bg:             #ffffff;
+$bg-overlay:            rgba($dark, 0.75);
+$ribbon-color:          #ffffff;
+
+$display-light: block;
+
+$display-dark: none;
+
+
+// Font
+$font-primary:        'Montserrat', sans-serif;
+$font-secondary:      'poppins', sans-serif;

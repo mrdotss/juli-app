@@ -1,0 +1,34 @@
+// 
+// testimonial.scss
+// 
+.owl-theme {
+    .owl-dots {
+        .owl-dot {
+            span {
+                width: 9px;
+                height: 5px;
+                margin: 4px;
+                background-color: rgba($primary, 0.25);
+                transition: all 0.3s ease-in-out;
+            }
+            &:focus {
+                outline: none;
+            }
+            &.active,
+            &:hover {
+                span {
+                    background: $primary;
+                    width: 20px;
+                    height: 5px;
+                }
+            }
+        }
+    }
+    .owl-nav.disabled {
+        + {
+            .owl-dots {
+                margin-top: 40px;
+            }
+        }
+    }
+}

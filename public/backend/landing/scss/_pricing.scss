@@ -1,0 +1,79 @@
+// 
+// pricing.scss
+// 
+.price-card {
+    box-shadow: 0px 3px 13px rgba($dark, 0.12);
+    margin-bottom: 30px;
+    .pricing-pr {
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        left: 0px;
+        transform: translateY(-50%);
+        .bottom-line {
+            width: 40px;
+            height: 2px;
+            background-color: $white;
+        }
+    }
+    .ribbon {
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        z-index: 1;
+        overflow: hidden;
+        width: 75px;
+        height: 75px;
+        text-align: right;
+        span {
+            font-size: 10px;
+            color: $ribbon-color;
+            text-align: center;
+            line-height: 22px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 8px 0 rgba($black, 0.06), 0 1px 0 0 rgba($black, 0.02);
+            width: 100px;
+            display: block;
+            position: absolute;
+            top: 18px;
+            left: -4px;
+            font-weight: 600;
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 100%;
+                z-index: -1;
+                border-right: 3px solid transparent;
+                border-bottom: 3px solid transparent;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 100%;
+                z-index: -1;
+                border-left: 3px solid transparent;
+                border-bottom: 3px solid transparent;
+            }
+        }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .ribbon {
+        &.ribbon-#{$color} {
+            span {
+                background-color: $value;
+                &:before {
+                    border-left: 3px solid darken($value, 10%);
+                    border-top: 3px solid darken($value, 10%);
+                }
+                &:after {
+                    border-right: 3px solid darken($value, 10%);
+                    border-top: 3px solid darken($value, 10%);
+                }
+            }
+        }
+    }
+}

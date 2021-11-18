@@ -1,0 +1,40 @@
+/* Template Name: Zorial - Responsive landing page
+   Author: Themesdesign
+   Version: 1.0.0
+   Created: Jan 2020
+   File Description: Main Css file of the template
+*/
+
+
+/**********************
+01.General
+02.Helper
+03.Components
+04.Menu
+05.Hero
+06.Features
+07.Pricing
+08.testimonial
+09.faq
+10.brandlogo
+11.newsletter
+12.footer
+***********************/
+
+@import "variables-dark";
+@import "general";
+@import "helper";
+@import "components";
+@import "menu";
+@import "hero";
+@import "features";
+@import "pricing";
+@import "testimonial";
+@import "faq";
+@import "brandlogo";
+@import "newsletter";
+@import "footer";
+
+
+
+

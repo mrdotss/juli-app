@@ -1,0 +1,117 @@
+// 
+// menu.scss
+// 
+// navbar start
+.navbar {
+    padding: 20px 0px;
+    transition: all 0.3s ease-in-out;
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                color: rgba($body-bg, 0.65);
+                font-size: 14px;
+                padding: 8px 16px;
+                font-weight: 500;
+                &:hover,
+                &:focus,
+                &.active {
+                    color: $primary;
+                }
+            }
+            &.active {
+                .nav-link {
+                    color: $primary !important;
+                }
+            }
+        }
+    }
+    .navbar-toggler {
+        border: none;
+        padding: 0px;
+        color: $gray-800;
+        &:focus {
+            outline: none;
+        }
+    }
+    .navbar-brand {
+        .logo-dark {
+            display: $display-dark;
+        }
+        .logo-light {
+            display: $display-light;
+        }
+    }
+}
+
+/*navbar-sticky*/
+
+.nav-sticky {
+    background-color: $body-bg;
+    padding: 12px 0px;
+    box-shadow: 0px 4px 20px rgba($gray-800, 0.08);
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                color: $gray-600;
+            }
+        }
+    }
+    .navbar-brand {
+        .logo-dark {
+            display: $display-light;
+        }
+        .logo-light {
+            display: $display-dark;
+        }
+    }
+}
+
+// navbar-light
+.navbar-light {
+    background-color: $body-bg;
+    .nav-item {
+        .nav-link {
+            color: $gray-600 !important;
+            &:hover,
+            &:focus,
+            &.active {
+                color: $primary !important;
+            }
+        }
+    }
+    .navbar-brand {
+        .logo-dark {
+            display: $display-light;
+        }
+        .logo-light {
+            display: $display-dark;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        background-color: $body-bg;
+        box-shadow: 0px 4px 20px rgba($gray-800, 0.08);
+        padding: 10px 0px;
+        .navbar-nav {
+            .nav-item {
+                .nav-link {
+                    padding: 8px 0px;
+                    color: $gray-600;
+                }
+            }
+        }
+        .container {
+            width: 90%;
+        }
+        .navbar-brand {
+            .logo-dark {
+                display: $display-light;
+            }
+            .logo-light {
+                display: $display-dark;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+// 
+// faq.scss
+// 
+.faq-bg {
+    position: relative;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .card-header {
+        padding: 14px 20px;
+        margin-bottom: 18px;
+        a.faq-list[data-toggle="collapse"].collapsed {
+            &:before {
+                content: "\eb89";
+            }
+        }
+        a.faq-list[data-toggle="collapse"] {
+            &:before {
+                content: "\eb56";
+                transition: all 0.5s;
+                font-family: "boxicons";
+                font-size: 20px;
+                color: $dark;
+                position: absolute;
+                right: 10px;
+                top: 26px;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.accordion {
+    .card {
+        .card-header {
+            .faq-list {
+                color: $gray-900 !important;
+            }
+        }
+    }
+}

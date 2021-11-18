@@ -1,0 +1,46 @@
+// 
+// features.scss
+// 
+.feature-content {
+    padding: 134px 0px;
+}
+
+.video-button {
+    .video-play-icon {
+        position: absolute;
+        left: -23px;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+        top: 50%;
+        transform: translateY(-50%);
+        img {
+            background-color: rgba($white, 0.2);
+            border-radius: 50%;
+            padding: 12px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-section {
+        padding: 100px 0px;
+        .feature-content {
+            padding: 0px 0px 30px;
+        }
+        .feature-img {
+            width: 100%;
+        }
+        .video-play-icon {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    
+}

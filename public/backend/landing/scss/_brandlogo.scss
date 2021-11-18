@@ -1,0 +1,18 @@
+// 
+// brandlogo.scss
+// 
+
+.brand-section{
+    padding: 60px 0px;
+    .client-image {
+        opacity: 0.7;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+
+
+

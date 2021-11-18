@@ -1,0 +1,153 @@
+// 
+// hero.scss
+// 
+@mixin bg-center {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// hero-1
+.hero-1 {
+    padding: 170px 0px 35px;
+    @include bg-center;
+    .card {
+        &.form-box {
+            box-shadow: 0px 3px 13px rgba($dark, 0.12);
+            border-top: 4px solid $primary;
+            border-radius: 6px;
+            z-index: 1;
+        }
+    }
+    .hero-bottom-shape {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        .shape-light {
+            display: $display-light;
+        }
+        .shape-dark {
+            display: $display-dark;
+        }
+        
+    }
+}
+
+// hero-2
+.hero-2 {
+    padding: 180px 0px 80px;
+    @include bg-center;
+    .subscribe-btn {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+    }
+}
+
+// hero-3
+.hero-3 {
+    padding: 280px 0px 220px;
+    @include bg-center;
+}
+
+// hero-4
+.hero-4 {
+    height: 100vh;
+    @include bg-center;
+    .hero-content {
+        .hero-4-sub-title {
+            color: rgba($light, 0.5);
+        }
+        .hero-icon {
+            width: 54px;
+            height: 54px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+// hero-5
+.hero-5 {
+    padding: 270px 0px 170px;
+    @include bg-center;
+}
+
+// hero-6
+.hero-6 {
+    padding: 200px 0px 0px;
+    position: relative;
+    @include bg-center;
+    .hero-content {
+        .hero-6-sub-title {
+            color: rgba($light, 0.5);
+        }
+        margin-top: 60px;
+    }
+    .hero-title {
+        font-size: 230px;
+        font-weight: 700;
+        color: rgba($gray-300, 0.05);
+        font-family: $font-secondary;
+        position: absolute;
+        bottom: -60px;
+        left: 0px;
+    }
+}
+
+// responsive
+@media (max-width: 576px) {
+    .hero-1 {
+        padding: 100px 0px !important;
+        .hero-bottom-shape {
+            display: none;
+        }
+    }
+    .hero-3 {
+        padding: 160px 0px 80px !important;
+    }
+    .hero-5 {
+        padding: 160px 0px 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-1 {
+        padding: 110px 0px 15px;
+    }
+    .hero-2 {
+        padding: 100px 0px;
+    }
+    .hero-3 {
+        padding: 200px 0px 140px;
+    }
+    .hero-4 {
+        padding: 150px 0px 10px !important;
+        background-image: none !important;
+    }
+    .hero-5 {
+        padding: 150px 0px 0px;
+    }
+    .hero-6 {
+        padding: 120px 0px 100px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero-4 {
+        height: auto;
+        padding: 170px 0px 110px;
+        .hero-img {
+            max-width: 100%;
+        }
+    }
+}
+
+@media(min-width: 769px)and(max-width: 1024px) {
+    .hero-1 {
+        padding: 150px 0px 15px;
+    }
+}
