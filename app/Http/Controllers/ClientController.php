@@ -11,6 +11,7 @@ use Laravolt\Indonesia\Models\Village;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
 use Auth;
+use Gate;
 
 class ClientController extends Controller
 {
@@ -171,6 +172,11 @@ class ClientController extends Controller
     {
         $cities = City::pluck('name', 'code');
         $client = Client::findOrFail($id);
+
+        if (Gate::denies('show', $client) AND $client->user_id != Auth::id()) {
+            abort(403);
+        }
+
         return view('client.show', ['client' => $client], compact('cities'));
     }
 

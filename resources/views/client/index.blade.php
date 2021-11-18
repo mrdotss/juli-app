@@ -63,70 +63,70 @@
                                             </thead>
                                             <tbody>
                                                 @if(Auth::user())
-                                                @foreach ($clients as $client)
-                                                    @if ($client->user_id == Auth::id())
-                                                    <tr>
-                                                    <td><img src="{{ Storage::url('public/client/photos/user_selfie/').$client->user_selfie }}" class="rounded" style="width: 65px"></td>
-                                                        <td>{{ $client->full_name }}</td>
-                                                        <td>{{ $client->user_position }}</td>
-                                                        <td>{{ $client->user_position_start_date->toDateString()}}</td>
-                                                        <td>
-                                                            
-                                                            <a href="{{ route('client.show',$client->id) }}" class="btn btn-outline-info"><i class="far fa-eye"></i></a>
-                                                            <a href="{{ route('client.edit',$client->id) }}" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
-                                                            <!-- <button href="javascript:void(0);" onclick=
-                                                            "
-                                                            if (confirm('Hapus data {{ $client->full_name }}?')) {
-                                                                document.getElementById('delete-employee').submit();
-                                                            }
-                                                            " type="button" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+                                                    @foreach ($clients as $client)
+                                                        @if ($client->user_id == Auth::id())
+                                                            <tr>
+                                                            <td><img src="{{ Storage::url('public/client/photos/user_selfie/').$client->user_selfie }}" class="rounded" style="width: 65px"></td>
+                                                                <td>{{ $client->full_name }}</td>
+                                                                <td>{{ $client->user_position }}</td>
+                                                                <td>{{ $client->user_position_start_date->toDateString()}}</td>
+                                                                <td>
+                                                                    
+                                                                    <a href="{{ route('client.show',$client->id) }}" class="btn btn-outline-info"><i class="far fa-eye"></i></a>
+                                                                    <a href="{{ route('client.edit',$client->id) }}" class="btn btn-outline-primary"><i class="far fa-edit"></i></a>
+                                                                    <!-- <button href="javascript:void(0);" onclick=
+                                                                    "
+                                                                    if (confirm('Hapus data {{ $client->full_name }}?')) {
+                                                                        document.getElementById('delete-employee').submit();
+                                                                    }
+                                                                    " type="button" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
 
-                                                            <form id="delete-employee" method="POST" action="{{ route('client.destroy', $client->id) }}">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                            </form> -->
+                                                                    <form id="delete-employee" method="POST" action="{{ route('client.destroy', $client->id) }}">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                    </form> -->
 
-                                                            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-                                                                <i class="far fa-trash-alt"></i>
-                                                            </button>
+                                                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                                                                        <i class="far fa-trash-alt"></i>
+                                                                    </button>
 
-                                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog" role="document">
-                                                                    <div class="modal-content">
+                                                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
 
-                                                                        <!-- Header -->
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                <i class="material-icons">close</i>
-                                                                            </button>
+                                                                                <!-- Header -->
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <i class="material-icons">close</i>
+                                                                                    </button>
+                                                                                </div>
+
+                                                                                <!-- Body -->
+                                                                                <div class="modal-body">
+                                                                                    Yakin ingin menghapus data ini?<br>
+                                                                                    {{ $client->full_name }}
+                                                                                </div>
+                                                                                
+                                                                                <!-- Footer -->
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                                                                                    <button href="javascript:void(0);" onclick="document.getElementById('delete-employee').submit();" 
+                                                                                        type="button" class="btn btn-outline-danger">Hapus</button>
+                                                                                        <form id="delete-employee" method="POST" action="{{ route('client.destroy', $client->id) }}">
+                                                                                            @csrf
+                                                                                            @method('DELETE')
+                                                                                        </form>
+                                                                                </div>
+                                                                                
+                                                                            </div>
                                                                         </div>
-
-                                                                        <!-- Body -->
-                                                                        <div class="modal-body">
-                                                                            Yakin ingin menghapus data ini?<br>
-                                                                            {{ $client->full_name }}
-                                                                        </div>
-                                                                        
-                                                                        <!-- Footer -->
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
-                                                                            <button href="javascript:void(0);" onclick="document.getElementById('delete-employee').submit();" 
-                                                                                type="button" class="btn btn-outline-danger">Hapus</button>
-                                                                                <form id="delete-employee" method="POST" action="{{ route('client.destroy', $client->id) }}">
-                                                                                    @csrf
-                                                                                    @method('DELETE')
-                                                                                </form>
-                                                                        </div>
-                                                                        
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            
-                                                        </td>
-                                                    </tr>
-                                                    @endif
-                                                @endforeach
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
                                                 @endif
                                             </tbody>
                                             <tfoot>
