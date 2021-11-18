@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('path.public',function(){
+            return'/home/fatechi3/public_html'; 
+            });
     }
 
     /**
