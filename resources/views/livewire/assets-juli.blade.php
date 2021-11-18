@@ -8,6 +8,7 @@
 <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Styles -->
+<link rel="shortcut icon" type="image/jpg" href="https://beta.fatechid.com/juli-app.ico"/>
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
