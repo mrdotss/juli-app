@@ -47,9 +47,18 @@
     <li class="nav-item">
         <a href="#" class="nav-link"><i class="material-icons-outlined">mail</i></a>
     </li>
+
+    @if( (Route::current()->getName() == 'client.index') )
+        <li class="nav-item">
+            <a href="#" class="nav-link" data-container="body" data-toggle="popover" data-placement="top" data-content="Tips untuk menghapus, search dahulu nama client sampai posisi no.1, kemudian delete." >
+                <i class="material-icons-outlined">notifications</i></a>
+        </li>
+    @else
     <li class="nav-item">
         <a href="#" class="nav-link"><i class="material-icons-outlined">notifications</i></a>
     </li>
+    @endif
+    
     <li class="nav-item">
         <a href="#" class="nav-link" id="dark-theme-toggle"><i class="material-icons-outlined">brightness_2</i><i class="material-icons">brightness_2</i></a>
     </li>
