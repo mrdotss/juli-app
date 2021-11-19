@@ -66,7 +66,7 @@
                                                     @foreach ($clients as $client)
                                                         @if ($client->user_id == Auth::id())
                                                             <tr>
-                                                            <td><img src="{{ Storage::url('public/client/photos/user_selfie/').$client->user_selfie }}" class="rounded" style="width: 65px"></td>
+                                                            <td><img src="{{ Storage::disk('s3')->url('client/photos/user_selfie/').$client->user_selfie }}" class="rounded" style="width: 65px"></td>
                                                                 <td>{{ $client->full_name }}</td>
                                                                 <td>{{ $client->user_position }}</td>
                                                                 <td>{{ $client->user_position_start_date->toDateString()}}</td>

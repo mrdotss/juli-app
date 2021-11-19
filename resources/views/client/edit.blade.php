@@ -203,9 +203,9 @@
                                                 </div>
 
                                                 <div class="form-group col-md-4">
-                                                <label for="id_card_picture">Current KTP</label>
+                                                <label for="id_card_picture_current">Current KTP</label>
                                                     <div class="card bg-dark text-white">
-                                                        <img src="{{ Storage::url('public/client/photos/id_card/').$client->id_card_picture }}" class="card-img" alt="...">
+                                                        <img src="{{ Storage::disk('s3')->url('client/photos/id_card/').$client->id_card_picture }}" class="card-img" alt="...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -331,7 +331,7 @@
                                                 <div class="form-group col-md-4">
                                                 <label for="user_selfie">Current Selfie</label>
                                                     <div class="card bg-dark text-white">
-                                                        <img src="{{ Storage::url('public/client/photos/user_selfie/').$client->user_selfie }}" class="card-img" alt="...">
+                                                        <img src="{{ Storage::disk('s3')->url('client/photos/user_selfie/').$client->user_selfie }}" class="card-img" alt="...">
                                                     </div>
                                                 </div>
                                             </div>

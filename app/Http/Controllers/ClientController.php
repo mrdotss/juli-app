@@ -101,10 +101,11 @@ class ClientController extends Controller
             ]);
 
             $user_selfie = $request->file('user_selfie');
-            $user_selfie->storeAs('/public/client/photos/user_selfie', $user_selfie->hashName());
+            $user_selfie->storeAs('client/photos/user_selfie', $user_selfie->hashName(), 's3Public');
+
 
             $id_card_picture = $request->file('id_card_picture');
-            $id_card_picture->storeAs('/public/client/photos/id_card', $id_card_picture->hashName());
+            $id_card_picture->storeAs('client/photos/id_card', $id_card_picture->hashName(), 's3Public');
             
             $client = Client::create([    
             'user_id' => Auth::id(),
@@ -302,10 +303,10 @@ class ClientController extends Controller
 
         }else if($request->file('id_card_picture') == ""){
 
-            Storage::disk('local')->delete('public/client/photos/user_selfie/'.$client->user_selfie);
+            Storage::disk('s3Public')->delete('client/photos/user_selfie/'.$client->user_selfie);
 
             $user_selfie = $request->file('user_selfie');
-            $user_selfie->storeAs('/public/client/photos/user_selfie', $user_selfie->hashName());
+            $user_selfie->storeAs('client/photos/user_selfie', $user_selfie->hashName(), 's3Public');
 
             $client->update([    
                 'dealer_group' => $request->dealer_group,
@@ -354,10 +355,11 @@ class ClientController extends Controller
 
         }else if($request->file('user_selfie') == ""){
 
-            Storage::disk('local')->delete('public/client/photos/id_card/'.$client->id_card);
-            
+
+            Storage::disk('s3Public')->delete('client/photos/id_card/'.$client->id_card_picture);
+
             $id_card_picture = $request->file('id_card_picture');
-            $id_card_picture->storeAs('/public/client/photos/id_card', $id_card_picture->hashName());
+            $id_card_picture->storeAs('client/photos/id_card', $id_card_picture->hashName(), 's3Public');
 
             $client->update([    
                 'dealer_group' => $request->dealer_group,
@@ -408,14 +410,15 @@ class ClientController extends Controller
         else{
             $client = Client::findOrFail($id);
             
-            Storage::disk('local')->delete('public/client/photos/id_card/'.$client->id_card);
-            Storage::disk('local')->delete('public/client/photos/user_selfie/'.$client->user_selfie);
-            
-            $user_selfie = $request->file('user_selfie');
-            $user_selfie->storeAs('/public/client/photos/user_selfie', $user_selfie->hashName());
+
+            Storage::disk('s3Public')->delete('client/photos/id_card/'.$client->id_card_picture);
+            Storage::disk('s3Public')->delete('client/photos/user_selfie/'.$client->user_selfie);
 
             $id_card_picture = $request->file('id_card_picture');
-            $id_card_picture->storeAs('/public/client/photos/id_card', $id_card_picture->hashName());
+            $id_card_picture->storeAs('client/photos/id_card', $id_card_picture->hashName(), 's3Public');
+
+            $user_selfie = $request->file('user_selfie');
+            $user_selfie->storeAs('client/photos/user_selfie', $user_selfie->hashName(), 's3Public');
 
             $client->update([    
             'dealer_group' => $request->dealer_group,
@@ -474,8 +477,8 @@ class ClientController extends Controller
     public function destroy($id)
     {
         $client = Client::find($id);
-        Storage::disk('local')->delete('public/client/photos/id_card/'.$client->id_card);
-        Storage::disk('local')->delete('public/client/photos/user_selfie/'.$client->user_selfie);
+        Storage::disk('s3Public')->delete('client/photos/id_card/'.$client->id_card_picture);
+        Storage::disk('s3Public')->delete('client/photos/user_selfie/'.$client->user_selfie);
         $client->delete();
         return back()->with('success', 'Data berhasil dihapus.');
     }

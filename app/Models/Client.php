@@ -30,7 +30,7 @@ class Client extends Model
     ];
 
     protected $append = [
-      'user_selfie',  
+      'user_selfie', 'id_card_picture',
     ];
 
     protected $dates = [

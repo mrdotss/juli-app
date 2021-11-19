@@ -39,7 +39,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="profile-img">
-                                        <img src="{{ Storage::url('public/client/photos/user_selfie/').$client->user_selfie }}" style="border-radius: 50%;">
+                                        <img src="{{ Storage::disk('s3')->url('client/photos/user_selfie/').$client->user_selfie }}" style="border-radius: 50%;">
                                     </div>
                                     <div class="profile-name">
                                         <h3>{{ $client->dealer_group }} - {{ $client->full_name }}</h3>
