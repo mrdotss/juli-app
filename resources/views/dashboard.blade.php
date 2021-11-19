@@ -35,20 +35,17 @@
                             <div class="col-lg-4 col-md-12">
                                 <div class="card card-transparent stats-card">
                                     <div class="card-body">
-                                        <div class="stats-info">
-                                            <h5 class="card-title">
-                                                @livewire('date-juli')
-                                            <!-- <span class="stats-change stats-change-danger">-8%</span> -->
-                                        </h5>
-                                            <p class="stats-text"></p>
+                                    <div class="stats-info">
+                                            <h5 class="card-title">$3,089.67<span class="stats-change stats-change-danger">-8%</span></h5>
+                                            <p class="stats-text">Total revenue for last  20 days</p>
                                         </div>
-                                        Date</br>
-                                        <!-- <div class="stats-icon change-danger">
+                                        <div class="stats-icon change-danger">
                                             <i class="material-icons">trending_down</i>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="col-lg-4 col-md-12">
                                 <div class="card card-transparent stats-card">
                                     <div class="card-body">

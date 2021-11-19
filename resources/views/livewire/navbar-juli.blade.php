@@ -84,13 +84,8 @@
         </div>
     </div>
 @endif
-
-<div class="navbar-search">
-    <form>
-        <div class="form-group">
-            <input type="text" name="search" id="nav-search" placeholder="Search...">
-        </div>
-    </form>
-</div>
+    <div class="navbar-search">
+         <p><b>@livewire('date-juli')</b></p>
+    </div>  
 </nav>
 <!-- End Nabvar -->
