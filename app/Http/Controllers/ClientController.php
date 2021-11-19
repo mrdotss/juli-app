@@ -173,7 +173,7 @@ class ClientController extends Controller
         $cities = City::pluck('name', 'code');
         $client = Client::findOrFail($id);
 
-        if (Gate::denies('show', $client) AND $client->user_id != Auth::id()) {
+        if (Gate::denies('client.show', $client) AND $client->user_id != Auth::id()) {
             abort(403);
         }
 
@@ -194,6 +194,11 @@ class ClientController extends Controller
         $villages = Village::pluck('name', 'id');
 
         $client = Client::findOrFail($id);
+
+        if (Gate::denies('client.edit', $client) AND $client->user_id != Auth::id()) {
+            abort(403);
+        }
+
         return view('client.edit', ['client' => $client], compact('provinces', 'cities', 'districts', 'villages'));
     }
 
