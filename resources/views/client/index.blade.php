@@ -51,6 +51,13 @@
                                             <br>
                                         @endif
                                         <table id="zero-conf" class="table table-hover" style="width:100%">
+                                        <div class="alert alert-info alert-dismissible fade show col-md-8" role="alert">
+                                                <strong>Untuk sementara ketika ingin menghapus data, search dahulu nama client sampai posisi paling atas
+                                            , kemudian delete.</strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                             <thead>
                                                 <tr>
                                                     <th>Photo</th>
