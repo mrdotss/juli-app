@@ -10,6 +10,8 @@ use Laravolt\Indonesia\Models\District;
 use Laravolt\Indonesia\Models\Village;
 use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
+use App\Exports\ClientsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Auth;
 use Gate;
 
@@ -166,7 +168,7 @@ class ClientController extends Controller
     /**
      * Display the specified client.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -184,7 +186,7 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified client.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -207,7 +209,7 @@ class ClientController extends Controller
      * Update the specified client in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -471,7 +473,7 @@ class ClientController extends Controller
     /**
      * Remove the specified client from storage.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -482,4 +484,14 @@ class ClientController extends Controller
         $client->delete();
         return back()->with('success', 'Data berhasil dihapus.');
     }
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
+    public function export() 
+    {
+        $file_name = 'clients-' . time() .  '.xlsx';
+        return Excel::download(new ClientsExport, $file_name);
+    }
+
 }

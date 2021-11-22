@@ -34,6 +34,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Client Core
     Route::resource('/user/client', 'ClientController');
+
+    //Export client
+    Route::get('/getOreClients/export', 'ClientController@export')->name('client.export');
+
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

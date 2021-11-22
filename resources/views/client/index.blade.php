@@ -37,7 +37,8 @@
                         </div>
                         <div class="row">
                             <div class="col-xl">
-                            <a href="{{ route('client.create') }}" class="btn btn-outline-primary m-b-md">Add Data</a>
+                            <a href="{{ route('client.create') }}" class="btn btn-outline-success m-b-md">Add Data</a>&nbsp;&nbsp;&nbsp;
+                            <a href="{{ route('client.export') }}" class="btn btn-outline-info m-b-md">Export to .xlsx</a>
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Client Info</h5>
@@ -51,7 +52,7 @@
                                             <br>
                                         @endif
                                         <table id="zero-conf" class="table table-hover" style="width:100%">
-                                        <div class="alert alert-info alert-dismissible fade show col-md-8" role="alert">
+                                        <div class="alert alert-warning alert-dismissible fade show col-md-8" role="alert">
                                                 <strong>Untuk sementara ketika ingin menghapus data, search dahulu nama client sampai posisi paling atas
                                             , kemudian delete.</strong>
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

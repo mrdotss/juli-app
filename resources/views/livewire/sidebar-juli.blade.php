@@ -15,18 +15,18 @@
                     </li>
                 @endif
                 
-                <li>
+                <!-- <li>
                     <a href="#"><i class="material-icons-outlined">inbox</i>Mailbox</a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('profile.show') }}"><i class="material-icons-outlined">account_circle</i>Profile</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#"><i class="material-icons">cloud_queue</i>File Manager</a>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <a href="#"><i class="material-icons-outlined">calendar_today</i>Calendar</a>
-                </li>
+                </li> -->
                 @if( (Route::current()->getName() == 'client.index') || (Route::current()->getName() == 'client.show') || (Route::current()->getName() == 'client.edit') )
                     <li class="active-page">
                         <a href="{{ route('client.index') }}"><i class="material-icons">supervised_user_circle</i>Client Info</a>
