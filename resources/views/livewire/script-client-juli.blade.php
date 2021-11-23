@@ -15,8 +15,7 @@ $(function () {
             .then(function (response) {
                 $('#id_card_city').empty();
                 $.each(response.data, function (id, name) {
-                    console.log(id, name);
-                    $('#id_card_city').append(new Option(name, id))
+                    $('#id_card_city').append(new Option(name, id)); 
                 })
             });
         });

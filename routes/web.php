@@ -27,9 +27,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     //             ->name('storeBegin');
     Route::post('/user/client/storeCity', [InfoController::class, 'storeCity'])
                 ->name('storeCity');
-    Route::post('/user/client/storeCity/storeDistrict', [InfoController::class, 'storeDistrict'])
+    Route::post('/user/client/storeDistrict', [InfoController::class, 'storeDistrict'])
                 ->name('storeDistrict');
-    Route::post('/user/client/storeCity/storeDistrict/storeVillage', [InfoController::class, 'storeVillage'])
+    Route::post('/user/client/storeVillage', [InfoController::class, 'storeVillage'])
                 ->name('storeVillage');
 
     // Client Core

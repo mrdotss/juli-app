@@ -137,7 +137,6 @@
                                                     <label for="id_card_province" class="required">Provinsi</label>
                                                     <select id="id_card_province" name ="id_card_province" class="form-control custom-select" required>
                                                         <option disabled="disabled" selected="selected">Pilih...</option>
-                                                        <!-- <option {{ $client->education == "SD" ? 'selected' : ''}}>SD</option> -->
                                                         @foreach ($provinces as $key => $value )
                                                             @if( $key == $client->id_card_province )
                                                                 <option value="{{ $key }}" selected="selected">{{ $value }}</option>
@@ -196,7 +195,6 @@
 
                                                 <div class="form-group col-md-2">
                                                     <label for="id_card_picture" class="required">Foto KTP</label>
-                                                    <!-- <input type="file" class="form-control" id="id_card_picture" name="id_card_picture"> -->
                                                     <br>
                                                     <input type="file" id="file" accept="image/*" style="display:none;" name="id_card_picture" />
                                                     <button type="button" class="btn btn-outline-info" onclick="thisFileUpload();">Upload</button>

@@ -70,7 +70,7 @@ class ClientController extends Controller
 
             
             'id_card_number' => 'required|max:16', 
-            'id_card_address' => 'required|max:45', 
+            'id_card_address' => 'required|max:100', 
             'id_card_province' => 'required|max:20',
             'id_card_city' => 'required|max:20', 
             'id_card_districts' => 'required|max:20', 
@@ -78,7 +78,7 @@ class ClientController extends Controller
             'id_card_postal_code' => 'required|max:5', 
             'id_card_picture' => 'required|image|mimes:png,jpg,jpeg|max:1024',
 
-            'home_address' => 'required|max:60', 
+            'home_address' => 'required|max:100', 
             'home_province' => 'required|max:20', 
             'home_city' => 'required|max:20', 
             'home_districts' => 'required|max:20',
@@ -105,10 +105,21 @@ class ClientController extends Controller
             $user_selfie = $request->file('user_selfie');
             $user_selfie->storeAs('client/photos/user_selfie', $user_selfie->hashName(), 's3Public');
 
-
             $id_card_picture = $request->file('id_card_picture');
             $id_card_picture->storeAs('client/photos/id_card', $id_card_picture->hashName(), 's3Public');
+
+            // $id_card_province = $request->id_card_province;
+            // $id_card_province = Province::where('code', $id_card_province)->value('name');
+
+            // $id_card_city = $request->id_card_city;
+            // $id_card_city = City::where('code', $id_card_city)->value('name');
             
+            // $id_card_districts = $request->id_card_districts;
+            // $id_card_districts = District::where('code', $id_card_districts)->value('name'); 
+
+            // $id_card_village = $request->id_card_village;
+            // $id_card_village = Village::where('code', $id_card_village)->value('name');
+
             $client = Client::create([    
             'user_id' => Auth::id(),
             'dealer_group' => $request->dealer_group,
@@ -122,7 +133,11 @@ class ClientController extends Controller
             'honda_id' => $request->honda_id,
 
             'id_card_number' => $request->id_card_number, 
-            'id_card_address' => $request->id_card_address, 
+            'id_card_address' => $request->id_card_address,
+            // 'id_card_province' => $id_card_province,
+            // 'id_card_city' => $id_card_city, 
+            // 'id_card_districts' => $id_card_districts, 
+            // 'id_card_village' => $id_card_village,
             'id_card_province' => $request->id_card_province,
             'id_card_city' => $request->id_card_city, 
             'id_card_districts' => $request->id_card_districts, 
@@ -194,7 +209,7 @@ class ClientController extends Controller
         $provinces = Province::pluck('name', 'code');
         $cities = City::pluck('name', 'code');
         $districts = District::pluck('name', 'code');
-        $villages = Village::pluck('name', 'id');
+        $villages = Village::pluck('name', 'code');
 
         $client = Client::findOrFail($id);
 
@@ -228,14 +243,14 @@ class ClientController extends Controller
             'honda_id' => 'required|max:10',
 
             'id_card_number' => 'required|max:16', 
-            'id_card_address' => 'required|max:45', 
+            'id_card_address' => 'required|max:100',
             'id_card_province' => 'required|max:20',
             'id_card_city' => 'required|max:20', 
             'id_card_districts' => 'required|max:20', 
             'id_card_village' => 'required|max:20',
             'id_card_postal_code' => 'required|max:5', 
 
-            'home_address' => 'required|max:60', 
+            'home_address' => 'required|max:100', 
             'home_province' => 'required|max:20', 
             'home_city' => 'required|max:20', 
             'home_districts' => 'required|max:20',
