@@ -23,8 +23,6 @@ Route::get('/', [LandingController::class, 'show'])
 Route::group(['middleware' => ['auth', 'verified']], function () {
 
     // Client info 
-    // Route::get('/user/client/asd', [InfoController::class, 'storeBegin'])
-    //             ->name('storeBegin');
     Route::post('/user/client/storeCity', [InfoController::class, 'storeCity'])
                 ->name('storeCity');
     Route::post('/user/client/storeDistrict', [InfoController::class, 'storeDistrict'])

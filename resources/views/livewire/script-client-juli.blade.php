@@ -14,6 +14,10 @@ $(function () {
         axios.post('{{ route('storeCity') }}', {id: $(this).val()})
             .then(function (response) {
                 $('#id_card_city').empty();
+                $('#id_card_districts').empty();
+                $('#id_card_districts').append('<option disabled="disabled" selected="selected" value="">Pilih...</option>');
+                $('#id_card_village').empty();
+                $('#id_card_village').append('<option disabled="disabled" selected="selected" value="">Pilih...</option>');
                 $.each(response.data, function (id, name) {
                     $('#id_card_city').append(new Option(name, id)); 
                 })
@@ -24,6 +28,8 @@ $(function () {
     axios.post('{{ route('storeDistrict') }}', {id: $(this).val()})
         .then(function (response) {
             $('#id_card_districts').empty();
+            $('#id_card_village').empty();
+            $('#id_card_village').append('<option disabled="disabled" selected="selected" value="">Pilih...</option>');
             $.each(response.data, function (id, name) {
 
                 $('#id_card_districts').append(new Option(name, id))

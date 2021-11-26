@@ -10,6 +10,45 @@ class Client extends Model
 {
     use HasFactory, Uuids;
 
+    /**
+     * Get the Province that owns the Client
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function selectedProvince()
+    {
+        return $this->belongsTo('Laravolt\Indonesia\Models\Province', 'id_card_province', 'code');
+    }
+
+    /**
+     * Get the City that owns the Client
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function selectedCity()
+    {
+        return $this->belongsTo('Laravolt\Indonesia\Models\City', 'id_card_city', 'code');
+    }
+
+    /**
+     * Get the District that owns the Client
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function selectedDistrict()
+    {
+        return $this->belongsTo('Laravolt\Indonesia\Models\District', 'id_card_districts', 'code');
+    }
+
+    /**
+     * Get the Village that owns the Client
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function selectedVillage()
+    {
+        return $this->belongsTo('Laravolt\Indonesia\Models\Village', 'id_card_village', 'code');
+    }
 
     /**
      * Indicates if the IDs are auto-incrementing.

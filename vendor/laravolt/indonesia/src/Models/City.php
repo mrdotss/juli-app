@@ -2,6 +2,8 @@
 
 namespace Laravolt\Indonesia\Models;
 
+use App\Models\Client;
+
 class City extends Model
 {
     protected $table = 'cities';
@@ -50,5 +52,15 @@ class City extends Model
 
             return url($folder.$logo_name);
         }
+    }
+
+    /**
+     * Get all of the clients for the City
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function client()
+    {
+        return $this->hasMany(Client::class);
     }
 }

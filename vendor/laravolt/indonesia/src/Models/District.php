@@ -2,6 +2,8 @@
 
 namespace Laravolt\Indonesia\Models;
 
+use App\Models\Client;
+
 class District extends Model
 {
     protected $table = 'districts';
@@ -30,5 +32,15 @@ class District extends Model
     public function getProvinceNameAttribute()
     {
         return $this->city->province->name;
+    }
+
+    /**
+     * Get all of the clients for the District
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function client()
+    {
+        return $this->hasMany(Client::class);
     }
 }

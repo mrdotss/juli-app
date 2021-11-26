@@ -9,9 +9,9 @@ use Laravolt\Indonesia\Models\City;
 use Laravolt\Indonesia\Models\District;
 use Laravolt\Indonesia\Models\Village;
 use Illuminate\Support\Facades\Storage;
-use Ramsey\Uuid\Uuid;
-use App\Exports\ClientsExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ClientsExport;
+use Ramsey\Uuid\Uuid;
 use Auth;
 use Gate;
 
@@ -206,13 +206,13 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $provinces = Province::pluck('name', 'code');
-        $cities = City::pluck('name', 'code');
-        $districts = District::pluck('name', 'code');
-        $villages = Village::pluck('name', 'code');
+        $provinces = Province::select('name', 'code')->get();
+        $cities = City::select('name', 'province_code', 'code')->get();
+        $districts = District::select('name', 'city_code', 'code')->get();
+        $villages = Village::select('name', 'district_code', 'code')->get();
 
         $client = Client::findOrFail($id);
-
+    
         if (Gate::denies('client.edit', $client) AND $client->user_id != Auth::id()) {
             abort(403);
         }

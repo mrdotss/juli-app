@@ -35,10 +35,19 @@ class CreateClientsTable extends Migration
             // ID Card
             $table->char('id_card_number', 16);
             $table->string('id_card_address', 100);
-            $table->string('id_card_province', 20);
-            $table->string('id_card_city', 20);
-            $table->string('id_card_districts', 20);
-            $table->string('id_card_village', 20);
+            
+            $table->char('id_card_province', 20);
+            $table->foreign('id_card_province')->references('code')->on('indonesia_provinces');
+
+            $table->char('id_card_city', 20);
+            $table->foreign('id_card_city')->references('code')->on('indonesia_cities');
+            
+            $table->char('id_card_districts', 20);
+            $table->foreign('id_card_districts')->references('code')->on('indonesia_districts');
+            
+            $table->char('id_card_village', 20);
+            $table->foreign('id_card_village')->references('code')->on('indonesia_villages');
+            
             $table->char('id_card_postal_code', 5);
             $table->string('id_card_picture');
 

@@ -137,12 +137,14 @@
                                                     <label for="id_card_province" class="required">Provinsi</label>
                                                     <select id="id_card_province" name ="id_card_province" class="form-control custom-select" required>
                                                         <option disabled="disabled" selected="selected">Pilih...</option>
-                                                        @foreach ($provinces as $key => $value )
-                                                            @if( $key == $client->id_card_province )
-                                                                <option value="{{ $key }}" selected="selected">{{ $value }}</option>
-                                                                @continue
+                                                        @foreach( $provinces as $sProv )
+                                                            @if( $sProv->code == $client->selectedProvince->code )
+                                                                    <option value="{{ $client->selectedProvince->code }}" selected>{{ $client->selectedProvince->name }}</option>
+                                                                    @continue
                                                             @endif
+                                                            <option value="{{ $sProv->code }}">{{ $sProv->name }}</option>
                                                         @endforeach
+                                                        
                                                     </select>
                                                 </div>
                                             </div>
@@ -152,10 +154,13 @@
                                                     <label for="id_card_city" class="required">Kota</label>
                                                     <select id="id_card_city" name="id_card_city" class="form-control custom-select" required>
                                                         <option disabled="disabled" selected="selected" value="">Pilih...</option>
-                                                        @foreach ($cities as $key => $value )
-                                                            @if( $key == $client->id_card_city )
-                                                                <option value="{{ $key }}" selected="selected">{{ $value }}</option>
-                                                                @continue
+                                                        @foreach( $cities as $sCit )
+                                                            @if( $sCit->province_code == $client->selectedProvince->code )
+                                                                @if( $sCit->code == $client->selectedCity->code )
+                                                                        <option value="{{ $client->selectedCity->code }}" selected>{{ $client->selectedCity->name }}</option>
+                                                                        @continue
+                                                                @endif
+                                                                <option value="{{ $sCit->code }}">{{ $sCit->name }}</option>
                                                             @endif
                                                         @endforeach
                                                     </select>
@@ -165,10 +170,13 @@
                                                     <label for="id_card_districts" class="required">Kecamatan</label>
                                                     <select id="id_card_districts" name ="id_card_districts" class="form-control custom-select" required>
                                                         <option disabled="disabled" selected="selected" value="">Pilih...</option>
-                                                        @foreach ($districts as $key => $value )
-                                                            @if( $key == $client->id_card_districts )
-                                                                <option value="{{ $key }}" selected="selected">{{ $value }}</option>
-                                                                @continue
+                                                        @foreach( $districts as $sDist )
+                                                            @if( $sDist->city_code == $client->selectedCity->code )
+                                                                @if( $sDist->code == $client->selectedDistrict->code )
+                                                                    <option value="{{ $client->selectedDistrict->code }}" selected>{{ $client->selectedDistrict->name }}</option>
+                                                                    @continue
+                                                                @endif
+                                                                <option value="{{ $sDist->code }}">{{ $sDist->name }}</option>
                                                             @endif
                                                         @endforeach
                                                     </select>
@@ -178,10 +186,13 @@
                                                     <label for="id_card_village" class="required">Kelurahan</label>
                                                     <select id="id_card_village" name ="id_card_village" class="form-control custom-select" required>
                                                         <option disabled="disabled" selected="selected" value="">Pilih...</option>
-                                                        @foreach ($villages as $key => $value )
-                                                            @if( $key == $client->id_card_village )
-                                                                <option value="{{ $key }}" selected="selected">{{ $value }}</option>
-                                                                @continue
+                                                        @foreach( $villages as $sVill  )
+                                                            @if( $sVill->district_code == $client->selectedDistrict->code )
+                                                                @if( $sVill->code == $client->selectedVillage->code )
+                                                                    <option value="{{ $client->selectedVillage->code }}" selected>{{ $client->selectedVillage->name }}</option>
+                                                                    @continue
+                                                                @endif
+                                                                <option value="{{ $sVill->code }}">{{ $sVill->name }}</option>
                                                             @endif
                                                         @endforeach
                                                     </select>
