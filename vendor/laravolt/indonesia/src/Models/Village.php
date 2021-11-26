@@ -2,6 +2,8 @@
 
 namespace Laravolt\Indonesia\Models;
 
+use App\Models\Client;
+
 class Village extends Model
 {
     protected $table = 'villages';
