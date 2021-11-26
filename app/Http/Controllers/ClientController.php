@@ -206,10 +206,10 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $provinces = Province::select('name', 'code')->get();
-        $cities = City::select('name', 'province_code', 'code')->get();
-        $districts = District::select('name', 'city_code', 'code')->get();
-        $villages = Village::select('name', 'district_code', 'code')->get();
+        $provinces = Province::all('name', 'code');
+        $cities = City::all('name', 'province_code', 'code');
+        $districts = District::all('name', 'city_code', 'code');
+        $villages = Village::all('name', 'district_code', 'code');
 
         $client = Client::findOrFail($id);
     

@@ -144,7 +144,6 @@
                                                             @endif
                                                             <option value="{{ $sProv->code }}">{{ $sProv->name }}</option>
                                                         @endforeach
-                                                        
                                                     </select>
                                                 </div>
                                             </div>
