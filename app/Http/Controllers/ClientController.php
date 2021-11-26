@@ -14,6 +14,7 @@ use App\Exports\ClientsExport;
 use Ramsey\Uuid\Uuid;
 use Auth;
 use Gate;
+use DB;
 
 class ClientController extends Controller
 {
@@ -209,7 +210,7 @@ class ClientController extends Controller
         $provinces = Province::all('name', 'code');
         $cities = City::all('name', 'province_code', 'code');
         $districts = District::all('name', 'city_code', 'code');
-        $villages = Village::all('name', 'district_code', 'code');
+        $villages = DB::table('indonesia_villages')->get();
 
         $client = Client::findOrFail($id);
     

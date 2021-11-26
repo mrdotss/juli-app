@@ -2,8 +2,6 @@
 
 namespace Laravolt\Indonesia\Models;
 
-use App\Models\Client;
-
 class Village extends Model
 {
     protected $table = 'villages';
@@ -33,9 +31,9 @@ class Village extends Model
     {
         return $this->district->city->province->name;
     }
-
+    
     /**
-     * Get all of the clients for the Village
+     * Get all of the clients for the District
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
