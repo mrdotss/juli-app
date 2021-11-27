@@ -17,7 +17,9 @@ class ClientsExport implements FromCollection, WithHeadings, ShouldAutoSize, Wit
     */
     public function collection()
     {
-        $client = Client::where('user_id', Auth::id())->get();
+        $client = Client::select('dealer_code', 'dealer_group', 'full_name', 'birth_place',
+        'birth_date','gender', 'education', 'marital_status', 'honda_id', 'id_card_number', 'email_user', 'phone_number', 'user_position_start_date')
+        ->where('user_id', Auth::id())->get();
         
         return $client;
     }
@@ -46,52 +48,19 @@ class ClientsExport implements FromCollection, WithHeadings, ShouldAutoSize, Wit
     public function headings(): array
     {
         return [
-            '#',
-            'User ID',
-            'Dealer Code',
-            'Dealer Group',
-            'Full Name',
+            'Dealer Code', 
+            'Dealer Group', 
+            'Full Name', 
             'Birth Place',
-            'birth Date',
-            'Gender',
-            'Religion',
-            'Education',
-            'Marital Status',
-            'Honda ID',
-            
-            'id_card Number',
-            'id_card Address',
-            'id_card Province',
-            'id_card City',
-            'id_card Districts',
-            'id_card Village',
-            'id_card Postal_code',
-            'id_card Picture',
-
-            'Home Address',
-            'Home Province',
-            'Home City',
-            'Home Districts',
-            'Home Village',
-            'Home Postal_code',
-
+            'Birth Date',
+            'Gender', 
+            'Education', 
+            'Marital Status', 
+            'Honda ID', 
+            'NIK', 
             'Email',
-            'Facebook',
-            'Instagram',
-            'Twitter',
-            'Telephone Number',
-            'Phone Number',
-            'Relatives Phone Number',
-            'Hobby 1',
-            'Hobby 2',
-            'Hobby 3',
-            'Supervisor',
-            'Coordinator', 
-            'Position',
-            'Position Start Date',
-            'Selfie',
-            'Created at',
-            'Updated at'
+            'Phone Number', 
+            'User Position Start Date'
         ];
     }
 }
