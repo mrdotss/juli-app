@@ -37,8 +37,11 @@
                         </div>
                         <div class="row">
                             <div class="col-xl">
-                            <a href="{{ route('client.create') }}" class="btn btn-outline-success m-b-md">Add Data</a>&nbsp;&nbsp;&nbsp;
+                            <a href="{{ route('client.create') }}" class="btn btn-outline-success m-b-md">Add Data</a>
+                            @if(Auth::id() == 3)
+                            &nbsp;&nbsp;&nbsp;
                             <a href="{{ route('client.export') }}" class="btn btn-outline-info m-b-md">Export to .xlsx</a>
+                            @endif
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Client Info</h5>

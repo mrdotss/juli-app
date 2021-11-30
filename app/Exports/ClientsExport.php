@@ -19,7 +19,7 @@ class ClientsExport implements FromCollection, WithHeadings, ShouldAutoSize, Wit
     {
         $client = Client::select('dealer_code', 'dealer_group', 'full_name', 'birth_place',
         'birth_date','gender', 'education', 'marital_status', 'honda_id', 'id_card_number', 'email_user', 'phone_number', 'user_position_start_date')
-        ->where('user_id', Auth::id())->get();
+        ->get();
         
         return $client;
     }
